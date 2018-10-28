@@ -19,6 +19,7 @@ class Task extends Component {
     Element value: e.target.value
     Element name: e.target.name
     Element type: e.target.type
+    Element class name: e.target.className
     */
 
     var updatedTask = { ...this.props.task };
@@ -34,11 +35,13 @@ class Task extends Component {
 
   // This is probably super unnecessary. I just want cleanliness.
   task = this.props.task;
-  taskIsCompleted = this.task.isCompleted;
+  description = this.task.description;
+  isCompleted = this.task.isCompleted;
+  isEditing = this.task.isEditing;
 
   render() {
     return (
-      <div className={'Task ' + (this.taskIsCompleted ? 'isCompleted' : '')}>
+      <div className={'Task ' + (this.isCompleted ? 'isCompleted' : '')}>
         <div className="task-header">
           <input
             className="checkTask"
@@ -47,25 +50,27 @@ class Task extends Component {
             onChange={this.handleTaskChanged}
           />
           <input
-            className={'title'}
+            name={'title'}
+            className={this.isCompleted ? 'isCompleted' : ''}
             type="text"
             value={this.props.task.title ? this.props.task.title : '(no title)'}
             readOnly={!this.state.isEditing}
+            onChange={this.handleTaskChanged}
           />
           <button
+            className={'edit'}
             onClick={() => this.setState({ isEditing: !this.state.isEditing })}
-            className="edit"
           >
             Edit
           </button>
         </div>
         <input
-          className="description"
+          name={'description'}
+          className={this.isCompleted ? 'isCompleted' : ''}
           type="text"
-          value={
-            this.task.description ? this.task.description : '(no description)'
-          }
+          value={this.description ? this.description : '(no description)'}
           readOnly={!this.state.isEditing}
+          onChange={this.handleTaskChanged}
         />
       </div>
     );

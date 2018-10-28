@@ -10,6 +10,10 @@
   background-color: #61dafb;
 }
 
+.isEditing {
+  background-color: #cc4;
+}
+
 .task-header {
   display: flex;
   flex-direction: row;
@@ -20,7 +24,7 @@
   flex: 1;
 }
 
-.title {
+#title {
   border: 0px;
   font-size: 1.2em;
   font-weight: 500;
@@ -33,7 +37,7 @@
   flex: 1;
 }
 
-.description {
+#description {
   border: 0px;
   font-size: 0.8em;
   flex: 1;
