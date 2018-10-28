@@ -7,6 +7,10 @@ class Task extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      isEditing: false
+    };
+
     this.handleTaskChanged = this.handleTaskChanged.bind(this);
   }
 
@@ -37,19 +41,32 @@ class Task extends Component {
       <div className={'Task ' + (this.taskIsCompleted ? 'isCompleted' : '')}>
         <div className="task-header">
           <input
-            className="changeTask"
+            className="checkTask"
             type="checkbox"
             checked={this.task.isCompleted}
             onChange={this.handleTaskChanged}
           />
-          <span className="title">
-            {this.props.task.title ? this.props.task.title : '(no title)'}
-          </span>
-          <span className="edit">Edit</span>
+          <input
+            className={'title'}
+            type="text"
+            value={this.props.task.title ? this.props.task.title : '(no title)'}
+            readOnly={!this.state.isEditing}
+          />
+          <button
+            onClick={() => this.setState({ isEditing: !this.state.isEditing })}
+            className="edit"
+          >
+            Edit
+          </button>
         </div>
-        <span className="description">
-          {this.task.description ? this.task.description : '(no description)'}
-        </span>
+        <input
+          className="description"
+          type="text"
+          value={
+            this.task.description ? this.task.description : '(no description)'
+          }
+          readOnly={!this.state.isEditing}
+        />
       </div>
     );
   }

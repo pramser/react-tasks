@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TaskList from 'react-tasks';
+import TaskList from './TaskList';
 
 // CSS
 import './App.css';

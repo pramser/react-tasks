@@ -1,0 +1,39 @@
+.Task {
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.isCompleted {
+  background-color: #61dafb;
+}
+
+.task-header {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.checkTask {
+  flex: 1;
+}
+
+.title {
+  border: 0px;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-left: 5px;
+  flex: 10;
+}
+
+.edit {
+  height: 25px;
+  flex: 1;
+}
+
+.description {
+  font-size: 0.8em;
+  flex: 1;
+}
