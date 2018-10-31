@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // CSS
-import './Task.css';
+import './task.css';
 
 class Task extends Component {
   constructor(props) {

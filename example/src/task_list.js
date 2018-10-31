@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Task from './Task';
+import Task from './task';
 
 // CSS
-import './TaskList.css';
+import './task_list.css';
 
 class TaskList extends Component {
   render() {

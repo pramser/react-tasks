@@ -1,10 +1,10 @@
 {
   "private": true,
   "workspaces": [
-    "demo",
+    "example",
     "src"
   ],
   "scripts": {
-    "start": "cd demo && yarn start"
+    "start": "cd example && yarn start"
   }
 }

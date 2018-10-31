@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import TaskList from './TaskList';
+import TaskList from './task_list';
 
 // CSS
-import './App.css';
+import './app.css';
 import logo from './logo.svg';
 
 class App extends Component {
