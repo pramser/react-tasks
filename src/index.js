@@ -1,4 +1,4 @@
-import Task from './components/Task';
-import TaskList from './components/TaskList';
+import Task from './task';
+import TaskList from './task_list';
 
-export default { Task, TaskList };
+export { Task, TaskList };

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import TaskList from './task_list';
+import { render } from 'react-dom';
 
-// CSS
-import './app.css';
+import TaskList from '../../src/task_list';
+
+import './index.css';
 import logo from './logo.svg';
 
-class App extends Component {
+class Demo extends Component {
   constructor(props) {
     super(props);
 
@@ -61,4 +62,4 @@ class App extends Component {
   }
 }
 
-export default App;
+render(<Demo />, document.querySelector('#demo'));
