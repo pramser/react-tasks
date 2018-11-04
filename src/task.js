@@ -33,32 +33,33 @@ class Task extends Component {
     this.props.onTaskChanged(updatedTask);
   }
 
-  // This is probably super unnecessary. I just want cleanliness.
-  task = this.props.task;
-  description = this.task.description;
-  isCompleted = this.task.isCompleted;
-  isEditing = this.task.isEditing;
-
   render() {
     return (
-      <div className={'Task ' + (this.isCompleted ? 'isCompleted' : '')}>
+      <div
+        className={'Task ' + (this.props.task.isCompleted ? 'isCompleted' : '')}
+      >
         <div className="task-header">
-          <input
-            className="checkTask"
-            type="checkbox"
-            checked={this.task.isCompleted}
-            onChange={this.handleTaskChanged}
-          />
-          <input
-            name={'title'}
-            className={this.isCompleted ? 'isCompleted' : ''}
-            type="text"
-            value={this.props.task.title ? this.props.task.title : '(no title)'}
-            readOnly={!this.state.isEditing}
-            onChange={this.handleTaskChanged}
-          />
+          <span className="checkTask">
+            <input
+              type="checkbox"
+              checked={this.props.task.isCompleted}
+              onChange={this.handleTaskChanged}
+            />
+          </span>
+          <span className="header-title">
+            <input
+              name="title"
+              className={
+                'title ' + (this.props.task.isCompleted ? 'isCompleted' : '')
+              }
+              type="text"
+              value={this.props.task.title ? this.props.task.title : ''}
+              readOnly={!this.state.isEditing}
+              onChange={this.handleTaskChanged}
+            />
+          </span>
           <button
-            className={'edit'}
+            className="edit"
             onClick={() => this.setState({ isEditing: !this.state.isEditing })}
           >
             Edit
@@ -66,9 +67,11 @@ class Task extends Component {
         </div>
         <input
           name={'description'}
-          className={this.isCompleted ? 'isCompleted' : ''}
+          className={
+            'description ' + (this.props.task.isCompleted ? 'isCompleted' : '')
+          }
           type="text"
-          value={this.description ? this.description : '(no description)'}
+          value={this.props.task.description ? this.props.task.description : ''}
           readOnly={!this.state.isEditing}
           onChange={this.handleTaskChanged}
         />
