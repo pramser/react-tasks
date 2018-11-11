@@ -56,7 +56,11 @@ class Demo extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <p>React Tasks</p>
         </header>
-        <TaskList tasks={this.state.tasks} onTaskChanged={this.onTaskChanged} />
+        <TaskList
+          tasks={this.state.tasks}
+          orientation="horizontal"
+          onTaskChanged={this.onTaskChanged}
+        />
       </div>
     );
   }

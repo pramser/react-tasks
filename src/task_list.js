@@ -7,24 +7,32 @@ import './task_list.css';
 class TaskList extends Component {
   render() {
     return (
-      <div className="TaskList">
-        <h1>Uncompleted Tasks:</h1>
-        {this.props.tasks.filter(task => !task.isCompleted).map((task, t) => (
-          <Task
-            key={task.id}
-            task={task}
-            onTaskChanged={this.props.onTaskChanged}
-          />
-        ))}
+      <div className={'TaskList ' + this.props.orientation}>
+        <div className="uncompleted-tasks">
+          <h1>Uncompleted Tasks:</h1>
+          {this.props.tasks
+            .filter(task => !task.isCompleted)
+            .map((task, t) => (
+              <Task
+                key={task.id}
+                task={task}
+                onTaskChanged={this.props.onTaskChanged}
+              />
+            ))}
+        </div>
 
-        <h1>Completed Tasks:</h1>
-        {this.props.tasks.filter(task => task.isCompleted).map((task, t) => (
-          <Task
-            key={task.id}
-            task={task}
-            onTaskChanged={this.props.onTaskChanged}
-          />
-        ))}
+        <div className="completed-tasks">
+          <h1>Completed Tasks:</h1>
+          {this.props.tasks
+            .filter(task => task.isCompleted)
+            .map((task, t) => (
+              <Task
+                key={task.id}
+                task={task}
+                onTaskChanged={this.props.onTaskChanged}
+              />
+            ))}
+        </div>
       </div>
     );
   }
