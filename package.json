@@ -4,6 +4,12 @@
   "description": "Quickly create movable task lists in React.",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "author": "Patrick Ramser",
+  "license": "MIT",
+  "repository": "",
+  "keywords": [
+    "react-component"
+  ],
   "files": [
     "css",
     "es",
@@ -26,11 +32,5 @@
     "nwb": "^0.25.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  },
-  "author": "Patrick Ramser",
-  "license": "MIT",
-  "repository": "",
-  "keywords": [
-    "react-component"
-  ]
+  }
 }
