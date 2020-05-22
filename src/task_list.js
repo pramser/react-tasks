@@ -1,9 +1,7 @@
 import React from 'react';
 import Task from './task';
 
-const TaskList = (props) => {
-
-  const { tasks, onTaskChanged } = props;
+const TaskList = ({ tasks, onTaskChanged }) => {
 
   const style = {
     display: 'flex',
@@ -29,9 +27,7 @@ const TaskList = (props) => {
   );
 }
 
-const Tasks = (props) => {
-
-  const { tasks, filter, onTaskChanged } = props;
+const Tasks = ({ tasks, filter, onTaskChanged }) => {
 
   return tasks.filter(filter).map((task) => (
     <Task

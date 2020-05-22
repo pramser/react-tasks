@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-const Task = (props) => {
+const Task = ({ task, onTaskChanged }) => {
 
-  const { task, onTaskChanged } = props;
   const { title, description, isCompleted } = task;
   const [isEditing, setIsEditing] = useState(false);
 
@@ -19,16 +18,14 @@ const Task = (props) => {
     margin: '10px',
   }
 
-  const handleTaskChanged = (e) => {
+  const handleTaskChanged = ({ name, checked, value }) => {
     var t = { ...task };
-    t[e.name] = e.name == 'isCompleted' ? e.checked : e.value;
+    t[name] = name == 'isCompleted' ? checked : value;
     onTaskChanged(t);
   }
 
   return (
-    <div
-      style={style}
-    >
+    <div style={style}>
       <div
         style={{
           display: 'flex',
