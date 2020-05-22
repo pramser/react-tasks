@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 
-// CSS
-import './task.css';
-
 class Task extends Component {
+
+  style = {
+    backgroundColor: this.props.task.isCompleted ? '#61dafb' : '#ffffff',
+    border: '1px solid black',
+    borderRadius: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '10px',
+    margin: '10px',
+
+    // TODO: .isEditing - background-color: #cc4
+  }
+
   constructor(props) {
     super(props);
 
@@ -36,21 +46,31 @@ class Task extends Component {
   render() {
     return (
       <div
-        className={'Task ' + (this.props.task.isCompleted ? 'isCompleted' : '')}
+        style={this.style}
       >
-        <div className="task-header">
-          <span className="checkTask">
+        <div className="task-header" style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flex: 1
+        }}>
+          <span style={{ flex: 1 }}>
             <input
               type="checkbox"
               checked={this.props.task.isCompleted}
               onChange={this.handleTaskChanged}
             />
           </span>
-          <span className="header-title">
+          <span style={{ flex: 6 }}>
             <input
-              name="title"
-              className={
-                'title ' + (this.props.task.isCompleted ? 'isCompleted' : '')
+              style={
+                {
+                  backgroundColor: this.props.task.isCompleted ? '#61dafb' : '#ffffff',
+                  borderWidth: '0px',
+                  fontSize: '1.2em',
+                  fontWeight: 500,
+                  marginLeft: '5px',
+                  flex: 10
+                }
               }
               type="text"
               value={this.props.task.title ? this.props.task.title : ''}
@@ -59,17 +79,22 @@ class Task extends Component {
             />
           </span>
           <button
-            className="edit"
+            style={{
+              height: '25px',
+              flex: 2
+            }}
             onClick={() => this.setState({ isEditing: !this.state.isEditing })}
           >
             Edit
           </button>
         </div>
         <input
-          name={'description'}
-          className={
-            'description ' + (this.props.task.isCompleted ? 'isCompleted' : '')
-          }
+          style={{
+            backgroundColor: this.props.task.isCompleted ? '#61dafb' : '#ffffff',
+            borderWidth: '0px',
+            fontSize: '0.8em',
+            flex: 1
+          }}
           type="text"
           value={this.props.task.description ? this.props.task.description : ''}
           readOnly={!this.state.isEditing}
