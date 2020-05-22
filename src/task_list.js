@@ -1,28 +1,36 @@
 import React from 'react';
 import Task from './task';
 
-const TaskList = ({ tasks, onTaskChanged }) => {
+const TaskList = ({ tasks, onTaskChanged, orientation }) => {
+
+  orientation = orientation ? orientation : 'vertical';
+  const flexDirection = orientation == 'horizontal' ? 'row' : 'column';
+  const alignItems = orientation == 'horizontal' ? 'flex-start' : 'center';
 
   const style = {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: flexDirection,
     alignContent: 'center',
-    alignItems: 'center'
+    alignItems: alignItems,
   }
 
   return (
     <div style={style}>
-      <h1>Uncompleted Tasks:</h1>
-      <Tasks
-        tasks={tasks}
-        filter={task => !task.isCompleted}
-        onTaskChanged={onTaskChanged} />
+      <div style={{ flex: 1 }}>
+        <h1>Uncompleted Tasks:</h1>
+        <Tasks
+          tasks={tasks}
+          filter={task => !task.isCompleted}
+          onTaskChanged={onTaskChanged} />
+      </div>
 
-      <h1>Completed Tasks:</h1>
-      <Tasks
-        tasks={tasks}
-        filter={task => task.isCompleted}
-        onTaskChanged={onTaskChanged} />
+      <div style={{ flex: 1 }}>
+        <h1>Completed Tasks:</h1>
+        <Tasks
+          tasks={tasks}
+          filter={task => task.isCompleted}
+          onTaskChanged={onTaskChanged} />
+      </div>
     </div>
   );
 }

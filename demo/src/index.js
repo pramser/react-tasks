@@ -45,7 +45,7 @@ const Demo = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <p>React Tasks</p>
       </header>
-      <TaskList tasks={tasks} onTaskChanged={onTaskChanged} />
+      <TaskList tasks={tasks} onTaskChanged={onTaskChanged} orientation='vertical' />
     </div>
   );
 }
