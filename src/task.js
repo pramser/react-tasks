@@ -5,7 +5,9 @@ const Task = (props) => {
   const { task, onTaskChanged } = props;
   const { title, description, isCompleted } = task;
   const [isEditing, setIsEditing] = useState(false);
-  var backgroundColor = isCompleted ? '#61dafb' : (isEditing ? '#ffe730' : '#ffffff');
+
+  var color = isCompleted ? 'white' : 'black';
+  var backgroundColor = isCompleted ? '#447ead' : (isEditing ? '#ffe730' : 'white');
 
   const style = {
     backgroundColor: backgroundColor,
@@ -46,6 +48,7 @@ const Task = (props) => {
             name="title"
             style={
               {
+                color: color,
                 backgroundColor: backgroundColor,
                 borderWidth: '0px',
                 fontSize: '1.2em',
@@ -73,6 +76,7 @@ const Task = (props) => {
       <input
         name="description"
         style={{
+          color: color,
           backgroundColor: backgroundColor,
           borderWidth: '0px',
           fontSize: '0.8em',
