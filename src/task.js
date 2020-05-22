@@ -24,15 +24,10 @@ const Task = (props) => {
    */
   const handleTaskChanged = (e) => {
 
-    var updatedTask = { ...props.task };
+    var t = { ...props.task };
+    t[e.name] = e.name == 'isCompleted' ? e.checked : e.value;
 
-    if (e.target.type === 'checkbox') {
-      updatedTask.isCompleted = e.target.checked;
-    } else {
-      updatedTask[e.target.name] = e.target.value;
-    }
-
-    props.onTaskChanged(updatedTask);
+    props.onTaskChanged(t);
   }
 
   return (
@@ -47,13 +42,15 @@ const Task = (props) => {
         }}>
         <span style={{ flex: 1 }}>
           <input
+            name="isCompleted"
             type="checkbox"
             checked={props.task.isCompleted}
-            onChange={handleTaskChanged}
+            onChange={event => handleTaskChanged(event.target)}
           />
         </span>
         <span style={{ flex: 6 }}>
           <input
+            name="title"
             style={
               {
                 backgroundColor: props.task.isCompleted ? '#61dafb' : '#ffffff',
@@ -67,7 +64,7 @@ const Task = (props) => {
             type="text"
             value={props.task.title ? props.task.title : ''}
             readOnly={!isEditing}
-            onChange={handleTaskChanged}
+            onChange={event => handleTaskChanged(event.target)}
           />
         </span>
         <button
@@ -81,6 +78,7 @@ const Task = (props) => {
           </button>
       </div>
       <input
+        name="description"
         style={{
           backgroundColor: props.task.isCompleted ? '#61dafb' : '#ffffff',
           borderWidth: '0px',
@@ -90,7 +88,7 @@ const Task = (props) => {
         type="text"
         value={props.task.description ? props.task.description : ''}
         readOnly={!isEditing}
-        onChange={handleTaskChanged}
+        onChange={event => handleTaskChanged(event.target)}
       />
     </div>
   );
