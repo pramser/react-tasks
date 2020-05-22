@@ -40,6 +40,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [
         "react-dom",
         "virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:16.13.1"
+      ],
+      [
+        "react-textarea-autosize",
+        "virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:7.1.2"
       ]
     ],
     "locationBlacklistData": [
@@ -51,7 +55,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["nwb", "npm:0.25.2"],
             ["react", "npm:16.13.1"],
-            ["react-dom", "virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:16.13.1"]
+            ["react-dom", "virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:16.13.1"],
+            ["react-textarea-autosize", "virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:7.1.2"]
           ],
           "linkType": "SOFT",
         }]
@@ -10638,9 +10643,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-tasks", "workspace:."],
             ["nwb", "npm:0.25.2"],
             ["react", "npm:16.13.1"],
-            ["react-dom", "virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:16.13.1"]
+            ["react-dom", "virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:16.13.1"],
+            ["react-textarea-autosize", "virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:7.1.2"]
           ],
           "linkType": "SOFT",
+        }]
+      ]],
+      ["react-textarea-autosize", [
+        ["virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:7.1.2", {
+          "packageLocation": "./.yarn/$$virtual/react-textarea-autosize-virtual-b2f04e0d33/0/cache/react-textarea-autosize-npm-7.1.2-91d1c0997d-3.zip/node_modules/react-textarea-autosize/",
+          "packageDependencies": [
+            ["react-textarea-autosize", "virtual:ace16e08a1045176ab5b8ea421e7b815b47aab7e864659451fb7a3200c531b36deffd89b505e4f21a0162af1a9f47589e92cf2ef86156b080b26aa31f69a75dd#npm:7.1.2"],
+            ["@babel/runtime", "npm:7.9.6"],
+            ["prop-types", "npm:15.7.2"],
+            ["react", "npm:16.13.1"]
+          ],
+          "packagePeers": [
+            "react"
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["readable-stream", [

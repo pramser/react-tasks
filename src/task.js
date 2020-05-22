@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TextareaAutosize from 'react-textarea-autosize'
 
 const Task = ({ task, onTaskChanged }) => {
 
@@ -70,16 +71,16 @@ const Task = ({ task, onTaskChanged }) => {
           Edit
           </button>
       </div>
-      <input
+      <TextareaAutosize
         name="description"
         style={{
           color: color,
           backgroundColor: backgroundColor,
           borderWidth: '0px',
+          resize: 'none',
           fontSize: '0.8em',
           flex: 1
         }}
-        type="text"
         value={description ? description : ''}
         readOnly={!isEditing}
         onChange={event => handleTaskChanged(event.target)}

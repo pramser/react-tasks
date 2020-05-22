@@ -1389,7 +1389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.9.6, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:7.9.6, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.8.4":
   version: 7.9.6
   resolution: "@babel/runtime@npm:7.9.6"
   dependencies:
@@ -9109,7 +9109,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2":
+"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -9373,10 +9373,23 @@ fsevents@^1.2.7:
     nwb: ^0.25.2
     react: ^16.13.1
     react-dom: ^16.13.1
+    react-textarea-autosize: ^7.1.2
   peerDependencies:
     react: 16.x
   languageName: unknown
   linkType: soft
+
+"react-textarea-autosize@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "react-textarea-autosize@npm:7.1.2"
+  dependencies:
+    "@babel/runtime": ^7.1.2
+    prop-types: ^15.6.0
+  peerDependencies:
+    react: ">=0.14.0 <17.0.0"
+  checksum: 3/df2114903e210e0945c630130e2b5e203bb72650b77f26d2ad9f754e50a2c9faded7d831fbde1ad7877497722296f41b67964ba3d9fe7f73a7a61d634678545b
+  languageName: node
+  linkType: hard
 
 "react@npm:^16.13.1":
   version: 16.13.1
