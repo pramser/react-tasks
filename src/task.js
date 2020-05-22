@@ -2,32 +2,25 @@ import React, { useState } from 'react';
 
 const Task = (props) => {
 
+  const { task, onTaskChanged } = props;
+  const { title, description, isCompleted } = task;
+  const [isEditing, setIsEditing] = useState(false);
+  var backgroundColor = isCompleted ? '#61dafb' : (isEditing ? '#ffe730' : '#ffffff');
+
   const style = {
-    backgroundColor: props.task.isCompleted ? '#61dafb' : '#ffffff',
+    backgroundColor: backgroundColor,
     border: '1px solid black',
     borderRadius: '10px',
     display: 'flex',
     flexDirection: 'column',
     padding: '10px',
     margin: '10px',
-
-    // TODO: .isEditing - background-color: #cc4
   }
 
-  const [isEditing, setIsEditing] = useState(false);
-
-  /**
-   * Element value: e.target.value
-   * Element name: e.target.name
-   * Element type: e.target.type
-   * Element class name: e.target.className
-   */
   const handleTaskChanged = (e) => {
-
-    var t = { ...props.task };
+    var t = { ...task };
     t[e.name] = e.name == 'isCompleted' ? e.checked : e.value;
-
-    props.onTaskChanged(t);
+    onTaskChanged(t);
   }
 
   return (
@@ -44,7 +37,7 @@ const Task = (props) => {
           <input
             name="isCompleted"
             type="checkbox"
-            checked={props.task.isCompleted}
+            checked={isCompleted}
             onChange={event => handleTaskChanged(event.target)}
           />
         </span>
@@ -53,7 +46,7 @@ const Task = (props) => {
             name="title"
             style={
               {
-                backgroundColor: props.task.isCompleted ? '#61dafb' : '#ffffff',
+                backgroundColor: backgroundColor,
                 borderWidth: '0px',
                 fontSize: '1.2em',
                 fontWeight: 500,
@@ -62,7 +55,7 @@ const Task = (props) => {
               }
             }
             type="text"
-            value={props.task.title ? props.task.title : ''}
+            value={title ? title : ''}
             readOnly={!isEditing}
             onChange={event => handleTaskChanged(event.target)}
           />
@@ -72,7 +65,7 @@ const Task = (props) => {
             height: '25px',
             flex: 2
           }}
-          onClick={() => setIsEditing({ isEditing: !isEditing })}
+          onClick={() => setIsEditing(!isEditing)}
         >
           Edit
           </button>
@@ -80,13 +73,13 @@ const Task = (props) => {
       <input
         name="description"
         style={{
-          backgroundColor: props.task.isCompleted ? '#61dafb' : '#ffffff',
+          backgroundColor: backgroundColor,
           borderWidth: '0px',
           fontSize: '0.8em',
           flex: 1
         }}
         type="text"
-        value={props.task.description ? props.task.description : ''}
+        value={description ? description : ''}
         readOnly={!isEditing}
         onChange={event => handleTaskChanged(event.target)}
       />
