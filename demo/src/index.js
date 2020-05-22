@@ -39,12 +39,17 @@ const Demo = () => {
     setTasks(_tasks);
   };
 
+  const createTask = () => {
+    setTasks([...tasks, { id: tasks.length + 1, title: '', description: '', isCompleted: false }]);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>React Tasks</p>
       </header>
+      <button onClick={createTask}>Add Task</button>
       <TaskList tasks={tasks} onTaskChanged={onTaskChanged} />
     </div>
   );
